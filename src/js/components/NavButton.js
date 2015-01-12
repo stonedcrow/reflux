@@ -14,7 +14,8 @@ var NavButton = React.createClass({
       keepQueryParams: React.PropTypes.oneOfType([
         React.PropTypes.bool,
         React.PropTypes.arrayOf(React.PropTypes.string)
-      ])
+      ]),
+      silent: React.PropTypes.bool
     }).isRequired
   },
 
@@ -25,7 +26,8 @@ var NavButton = React.createClass({
         displayName: 'Root',
         params: {},
         queryParams: {},
-        keepQueryParams: true
+        keepQueryParams: true,
+        silent: false
       }
     };
   },

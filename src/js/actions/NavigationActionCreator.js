@@ -5,7 +5,7 @@ var merge = require('react/lib/Object.assign');
 module.exports = {
   navigateTo: function(options) {
     var opts = merge({}, options, {
-      type: Constants.ActionTypes.NAVIGATE_TO
+      type: Constants.ActionSources.ROUTE_NAVIGATE_TO
     });
     AppDispatcher.handleViewAction(opts);
   }

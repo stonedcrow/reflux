@@ -2,6 +2,28 @@ var gulp = require('gulp');
 var browserify = require('gulp-browserify');
 var concat = require('gulp-concat');
 
+var jest = require('gulp-jest');
+
+gulp.task('jest', function () {
+    return gulp.src('./').pipe(jest({
+        scriptPreprocessor: "preprocessor.js",
+        unmockedModulePathPatterns: [
+            'react',
+            'flux',
+            'immutable',
+            'route-recognizer',
+            'js/constants/AppConstants'
+
+        ],
+        testPathIgnorePatterns: [
+            "node_modules"
+        ],
+        moduleFileExtensions: [
+            "js"
+        ]
+    }));
+});
+
 gulp.task('browserify', function() {
     gulp.src('src/js/index.js')
       .pipe(browserify({transform: 'reactify'}))

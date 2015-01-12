@@ -1,17 +1,25 @@
-var keyMirror = require('react/lib/keyMirror');
+(function () {
 
-module.exports = {
+    var keyMirror = require('react/lib/keyMirror');
 
-  CHANGE_EVENT: 'change',
+    var AppConstants = {
+        ActionSources: keyMirror({
+            CHANGE_EVENT: null,
+            ROUTE_NAVIGATE_TO: null
+        }),
+        ActionSources: keyMirror({
+            SERVER_ACTION: null,
+            VIEW_ACTION: null
+        })
+    };
 
-  ActionTypes: keyMirror({
-    UPDATE_TITLE: null,
-    RECEIVE_DATA: null,
-    NAVIGATE_TO: null
-  }),
-
-  ActionSources: keyMirror({
-    SERVER_ACTION: null,
-    VIEW_ACTION: null
-  })
-};
+    if (typeof define === 'function' && define['amd']) {
+        define(function () {
+            return RouteStore;
+        });
+    } else if (typeof module !== 'undefined' && module['exports']) {
+        module['exports'] = AppConstants;
+    } else if (typeof this !== 'undefined') {
+        this['AppConstants'] = AppConstants;
+    }
+}).call(this);

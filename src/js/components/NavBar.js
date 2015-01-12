@@ -56,18 +56,21 @@ NavBar = React.createClass({
       },
       {
         route: 'root.contact',
-        displayName: 'contact'
+        displayName: 'contact',
+        silent: true
       },
       {
         route: 'root.contact.search',
-        displayName: 'contact search'
+        displayName: 'contact search',
+        silent: true
       },
       {
         route: 'root.contact.detail',
         displayName: 'contact detail',
         params: {
           contactId: 'someProperty'
-        }
+        },
+        silent: true
       }
     ].map(function (nav) {
         return (<NavButton options={nav} key={nav.route}/>);
